@@ -4,22 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrlosAren/api-node-dummy.git"
   },
   "keywords": [],
   "author": "Carlos Lopez Z. <krlosaren@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
-    "mongoose": "^5.10.11",
-    "nodemon": "^2.0.6",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+  "bugs": {
+    "url": "https://github.com/KrlosAren/api-node-dummy/issues"
   },
+  "homepage": "https://github.com/KrlosAren/api-node-dummy#readme",
   "dependencies": {
-    "connect-mongo": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-session": "^1.17.1"
+    "mysql": "^2.18.1",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
   }
 }
