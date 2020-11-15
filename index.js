@@ -3,13 +3,14 @@ const app = express();
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path');
-const Links = require('./routes/links');
+const link = require('./routes/links');
 
 
 const PORT = process.env.PORT || 3000;
 
 //middleware
-app.use(morgan('combined'))
+app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // config
@@ -17,10 +18,9 @@ app.set('views', path.join(__dirname, 'public/views'))
 app.set('view engine', 'pug')
 
 // routes
-Links(app)
-app.get('/', (req, res, next) => {
-  res.render('index', { title: 'Link App', message: 'Cargando' });
-});
+link(app)
+// app.use(require('./routes/index'))
+// app.use('/links', require('./routes/links'))
 
 
 // static

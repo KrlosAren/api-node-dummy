@@ -2,8 +2,8 @@ const mysql = require('mysql')
 const { promisify } = require('util')
 const { database } = require('./keys')
 
-const conection = mysql.createPool(database)
-conection.getConnection((err, con) => {
+const pool = mysql.createPool(database)
+pool.getConnection((err, connection) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       console.error('DATABASE CONNECTION WAS CLOSED');
@@ -16,12 +16,12 @@ conection.getConnection((err, con) => {
     }
   }
 
-  if (con) conection.releaseConnection()
+  if (connection) connection.release()
   console.log('DB is connect');
   return
 })
 
 // promisify pool query
-conection.query = promisify(conection.query)
+pool.query = promisify(pool.query)
 
-module.exports = conection
+module.exports = pool
