@@ -1,0 +1,15 @@
+include ../index.pug
+block content
+  div(class='container p-4')
+    each data in link
+      div(class='col-md-4 mx-auto')
+        div(class='card-body card')
+          form(action="/links/edit/" + data.id, method="POST")
+            div(class='form-group')
+              input(type="text", name="title" class='form-control' placeholder='Title' autofocus value=data.title)
+            div(class='form-group')
+              input(type="url", name="url" class='form-control' placeholder='URL' value=data.url)
+            div(class='form-group')
+              textarea(name="url_description" rows="2" class='form-control' placeholder='Description' ) #{data.url_description}
+            div(class='form-group')
+              button(class='btn btn-success btn-block') Save

@@ -1,0 +1,17 @@
+include ../index.pug
+block content
+  .container.p-4
+    .row
+      .col-md-4.mx-auto
+        .card.text-center
+          .card-header
+            h3 LogIn
+          .card-body
+            img(src='/img/user.svg', alt="userLogin", class='card-img-top mx-auto m-2 rounded-circle w-50' )
+            form(action="login", method="POST")
+              .form-group
+                input(type="text", name="username" placeholder='Username' class='form-control' autofocus)
+              .form-group
+                input(type="password", name="password" placeholder='Password' class='form-control')
+              .form-group
+                button(class='btn btn-success btn-block') LogIn

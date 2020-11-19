@@ -1,8 +1,14 @@
-const mysql = require('mysql')
+// const mysql = require('mysql')
+const mysql = require('mysql2')
 const { promisify } = require('util')
-const { database } = require('./keys')
+const { config } = require('../config')
 
-const pool = mysql.createPool(database)
+const pool = mysql.createPool({
+  database: config.database,
+  password: config.password,
+  user: config.user,
+  host: config.host
+})
 pool.getConnection((err, connection) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
@@ -16,6 +22,7 @@ pool.getConnection((err, connection) => {
     }
   }
 
+  
   if (connection) connection.release()
   console.log('DB is connect');
   return

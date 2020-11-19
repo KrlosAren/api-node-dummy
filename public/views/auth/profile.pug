@@ -1,0 +1,9 @@
+include ../index.pug
+block content
+  .container.p-4
+    .col-md-4.mx-auto
+      .card.text-center
+        .card-body
+          h3= 'Welcome ' + user.firstname + ' ' + user.lastname
+          a(href="/links/add" class='btn btn-primary m-4')
+            | Save your links

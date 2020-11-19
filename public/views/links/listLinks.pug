@@ -10,5 +10,5 @@ block content
                 h3(class='card-title text-uppercase') #{link.title}
               p(class='m-2') #{link.description}
               p #{link.time}
-              a(href='/delete/#{(link.id)}'  class='btn btn-danger') Delete Link
-              a(href="" class='btn btn-secondary') Edit
+              a(href='/links/delete/' + link.id  class='btn btn-danger') Delete Link
+              a(href='/links/edit/' + link.id  class='btn btn-secondary') Edit

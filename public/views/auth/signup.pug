@@ -1,0 +1,22 @@
+include ../index.pug
+block content
+  .container.p-4
+    .row
+      .col-md-4.mx-auto
+        .card.text-center
+          .card-header
+            h3 SignUp
+          .card-body
+            form(action="signup", method="POST")
+              .form-group
+                input(type="text", name="firstname" placeholder='Full Name' class='form-control' autofocus)
+              .form-group
+                input(type="text", name="lastname" placeholder='Last Name' class='form-control')
+              .form-group
+                input(type="text", name="username" placeholder='Username' class='form-control')
+              .form-group
+                input(type="email", name="email" placeholder='Email' class='form-control')
+              .form-group
+                input(type="password", name="password" placeholder='Password' class='form-control')
+              .form-group
+                button(class='btn btn-success btn-block') SignUp
