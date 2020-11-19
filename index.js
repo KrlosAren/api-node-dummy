@@ -26,7 +26,7 @@ app.use(session({
   store: new MySQLStore({}, pool)
 }))
 app.use(flash())
-app.use(morgan('dev'))
+// app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(passport.initialize())
@@ -41,8 +41,8 @@ app.set('view engine', 'pug')
 app.use((req, res, next) => {
   app.locals.success = req.flash('success')
   app.locals.message = req.flash('message')
-  console.log(app.locals.message);
-  console.log(app.locals.success);
+  // console.log(app.locals.message);
+  // console.log(app.locals.success);
   app.locals.user = req.user
   next()
 })
