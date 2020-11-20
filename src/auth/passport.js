@@ -11,6 +11,7 @@ passport.use('local.login', new LocalStrategy({
   const usersDB = await pool.query('SELECT * FROM users WHERE username = ?', [username])
   if (usersDB.length > 0) {
     const user = usersDB[0]
+    console.log(user);
     const matchValuePasword = await matchPassword(password, user.password)
     if (matchValuePasword) {
       done(null, user, req.flash('success', `Welcome ${user.username}`))
@@ -28,7 +29,6 @@ passport.use('local.signup', new LocalStrategy({
   passReqToCallback: true
 }, async (req, username, password, done) => {
   const { firstname, lastname, email } = req.body
-  // const {username, password } = req.body
   const newUser = {
     username,
     password,
