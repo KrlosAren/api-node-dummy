@@ -9,6 +9,7 @@ const pool = mysql.createPool({
   user: config.user,
   host: config.host
 })
+
 pool.getConnection((err, connection) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
